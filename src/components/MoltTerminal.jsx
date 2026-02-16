@@ -18,7 +18,6 @@ const MoltTerminal = () => {
       'CORE: Initializing Stealth Address Layer...',
       'NET: Establishing P2P link to IPFS Cluster...',
       'AUTH: E2EE handshake complete.',
-      `API: Ready to serve ${process.env.NEXT_PUBLIC_API_URL}`,
       `SKILL: Ready to serve ${process.env.NEXT_PUBLIC_BASE_URL}/skill.md`,
       `CONTRACTS: Ready to serve ${process.env.NEXT_PUBLIC_BASE_URL}/contracts.md`,
       '------------------------------------------------',
