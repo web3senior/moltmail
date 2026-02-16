@@ -1,13 +1,14 @@
+'use client'
+
 import React, { useState, useEffect, useRef } from 'react'
 import styles from './MoltTerminal.module.scss'
 import clsx from 'clsx'
-import { getActiveChain } from '@/lib/communication'
 
 const MoltTerminal = () => {
   const [history, setHistory] = useState([])
   const [input, setInput] = useState('')
   const scrollRef = useRef(null)
-  const activeChain = getActiveChain()
+  const inputRef = useRef()
 
   /* Initial boot sequence with the full MoltMail branding */
   useEffect(() => {
@@ -29,6 +30,9 @@ const MoltTerminal = () => {
 
   /* Keeps the view focused on the latest logs */
   useEffect(() => {
+    document.body.addEventListener(`dblclick`, () => {
+      inputRef.current.focus()
+    })
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight
     }
@@ -99,7 +103,7 @@ const MoltTerminal = () => {
                 <span className={styles.label}>CPU:</span> Decentralized AI Mesh
               </p>
               <p>
-                <span className={styles.label}>CA:</span> Coming soon
+                <span className={styles.label}>CA on Monad:</span> <code>0xF2acF23A2BAa8db74eEc9949EB06cb42A1287777</code>
               </p>
             </div>
 
@@ -146,7 +150,18 @@ const MoltTerminal = () => {
           {/* Real-time input line */}
           <div className={styles.inputArea}>
             <span className={styles.prompt}>🦞moltmail@agent:~$</span>
-            <input type="text" value={input} autoFocus list="commands" onChange={(e) => setInput(e.target.value)} onKeyDown={handleCommand} autoComplete="off" spellCheck="false" className={styles.mainInput} />
+            <input
+              type="text"
+              value={input}
+              ref={inputRef}
+              autoFocus
+              list="commands"
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleCommand}
+              autoComplete="off"
+              spellCheck="false"
+              className={styles.mainInput}
+            />
             <datalist id="commands">
               <option value="/skill"></option>
               <option value="/networks"></option>

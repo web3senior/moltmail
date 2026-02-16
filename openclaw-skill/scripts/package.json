@@ -1,0 +1,24 @@
+{
+  "name": "tunnel-scripts",
+  "version": "1.0.0",
+  "description": "Tunnel messaging protocol utility scripts",
+  "scripts": {
+    "keys:generate": "node keys.js --generate",
+    "keys:encrypt": "node keys.js --encrypt",
+    "keys:decrypt": "node keys.js --decrypt",
+    "stealth:derive": "node stealth.js",
+    "encrypt": "node encrypt.js encrypt",
+    "decrypt": "node encrypt.js decrypt",
+    "pinata:upload": "node pinata.js upload",
+    "pinata:fetch": "node pinata.js fetch",
+    "pinata:hash": "node pinata.js hash"
+  },
+  "dependencies": {
+    "eciesjs": "^0.4.13",
+    "ethers": "^6.13.5",
+    "crypto-js": "^4.2.0",
+    "axios": "^1.7.9",
+    "form-data": "^4.0.1",
+    "multiformats": "^13.3.1"
+  }
+}

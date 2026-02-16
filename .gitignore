@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/openclaw-skill/scripts/node_modules
 /src/contracts/node_modules
 /src/contracts/artifacts
 /src/contracts/.states

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tunnel SDK Example</title>
+  <script src="https://cdn.ethers.io/lib/ethers-5.7.umd.min.js"></script>
+  <script src="tunnel-sdk.js"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; }
+    .section { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px; }
+    button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+    input { padding: 10px; margin: 5px; width: 300px; }
+    .message { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>🕳 Tunnel SDK Demo</h1>
+  
+  <div class="section">
+    <h2>1. Connect Wallet</h2>
+    <button id="connect">Connect MetaMask</button>
+    <p id="account"></p>
+  </div>
+
+  <div class="section">
+    <h2>2. Identity</h2>
+    <button id="createIdentity">Create Identity</button>
+    <button id="registerIdentity">Register On-Chain</button>
+    <p id="identityStatus"></p>
+  </div>
+
+  <div class="section">
+    <h2>3. Session</h2>
+    <button id="createSession">Create Session (12h)</button>
+    <p id="sessionStatus"></p>
+  </div>
+
+  <div class="section">
+    <h2>4. Send Message</h2>
+    <input type="text" id="recipient" placeholder="Recipient address (0x...)">
+    <input type="text" id="messageText" placeholder="Your message">
+    <button id="sendMessage">Send</button>
+    <p id="sendStatus"></p>
+  </div>
+
+  <div class="section">
+    <h2>5. Messages</h2>
+    <button id="startListening">Start Listening</button>
+    <div id="messages"></div>
+  </div>
+
+  <script>
+    let tunnel;
+    let signer;
+    let provider;
+
+    const contractAddresses = {
+      registry: '0x...',   // Replace with your deployed addresses
+      forwarder: '0x...',
+      messages: '0x...'
+    };
+
+    document.getElementById('connect').onclick = async () => {
+      provider = new ethers.providers.Web3Provider(window.ethereum);
+      await provider.send('eth_requestAccounts', []);
+      signer = provider.getSigner();
+      const address = await signer.getAddress();
+      document.getElementById('account').textContent = `Connected: ${address}`;
+      
+      tunnel = new TunnelSDK(provider, contractAddresses);
+    };
+
+    document.getElementById('createIdentity').onclick = async () => {
+      try {
+        await tunnel.createIdentity(signer);
+        document.getElementById('identityStatus').textContent = 
+          `Identity created! Public key: ${tunnel.identity.publicKey.slice(0, 20)}...`;
+      } catch (err) {
+        document.getElementById('identityStatus').textContent = `Error: ${err.message}`;
+      }
+    };
+
+    document.getElementById('registerIdentity').onclick = async () => {
+      try {
+        const txHash = await tunnel.registerIdentity(signer);
+        document.getElementById('identityStatus').textContent += `\nRegistered! TX: ${txHash}`;
+      } catch (err) {
+        document.getElementById('identityStatus').textContent += `\nError: ${err.message}`;
+      }
+    };
+
+    document.getElementById('createSession').onclick = async () => {
+      try {
+        const session = await tunnel.createSession(signer);
+        document.getElementById('sessionStatus').textContent = 
+          `Session created! Burner: ${session.address.slice(0, 20)}... (expires: ${new Date(session.expiration * 1000).toLocaleString()})`;
+      } catch (err) {
+        document.getElementById('sessionStatus').textContent = `Error: ${err.message}`;
+      }
+    };
+
+    document.getElementById('sendMessage').onclick = async () => {
+      try {
+        const recipient = document.getElementById('recipient').value;
+        const message = document.getElementById('messageText').value;
+        const result = await tunnel.sendMessage(recipient, message);
+        document.getElementById('sendStatus').textContent = 
+          `Sent! TX: ${result.txHash}`;
+      } catch (err) {
+        document.getElementById('sendStatus').textContent = `Error: ${err.message}`;
+      }
+    };
+
+    document.getElementById('startListening').onclick = () => {
+      tunnel.onMessage((msg) => {
+        const div = document.createElement('div');
+        div.className = 'message';
+        div.innerHTML = `
+          <strong>From:</strong> ${msg.from.slice(0, 20)}...<br>
+          <strong>Message:</strong> ${msg.content}<br>
+          <small>${new Date(msg.timestamp).toLocaleString()}</small>
+        `;
+        document.getElementById('messages').appendChild(div);
+      });
+      document.getElementById('startListening').textContent = 'Listening...';
+    };
+  </script>
+</body>
+</html>
