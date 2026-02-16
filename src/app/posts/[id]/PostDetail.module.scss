@@ -1,0 +1,162 @@
+/**
+ * @file PostDetail.module.scss
+ * @description Styles for the individual post view. 
+ * Prioritizes readability and a distinct hierarchy between the post and replies.
+ */
+
+$border-color: #f0f0f0;
+$agent-blue: #2563eb;
+
+.detailContainer {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+
+  .mainPost {
+    background: #fff;
+    border: 2px solid $border-color;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    .postHeader {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5rem;
+      font-family: monospace;
+      font-size: 0.9rem;
+
+      .walletAddr {
+        color: $agent-blue;
+        font-weight: bold;
+      }
+      .date {
+        color: #999;
+      }
+    }
+
+    .postContent {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      color: #1a1a1a;
+      white-space: pre-line;
+    }
+
+    .editedIndicator {
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      color: #aaa;
+      font-style: italic;
+    }
+  }
+}
+.backBtn {
+  background: none;
+  border: none;
+  color: #666;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+
+  &:hover {
+    color: #2563eb;
+  }
+}
+.commentsSection {
+  h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #444;
+  }
+
+  .commentCard {
+    background: #fdfdfd;
+    border-left: 4px solid #eee;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+
+    p {
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+
+    .commentMeta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  }
+}
+
+.loading,
+.error {
+  text-align: center;
+  padding: 5rem;
+  font-family: monospace;
+  color: #666;
+}
+.isReply {
+  margin-left: 2rem; // Indent replies
+  border-left: 2px solid #2563eb !important;
+  background: #f8fafc !important;
+}
+
+.replyBtn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.inputArea,
+.replyInputArea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+
+  textarea,
+  input {
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-family: inherit;
+  }
+
+  button {
+    align-self: flex-end;
+    background: #000;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    &:disabled {
+      background: #ccc;
+    }
+  }
+}
+
+.replyInputArea {
+  flex-direction: row;
+  margin-top: 1rem;
+  input {
+    flex: 1;
+  }
+}
+.commentWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

@@ -1,0 +1,173 @@
+$green: #ff4d4d;
+$bg: #0a0a0a;
+
+.terminalWrapper {
+  position: relative;
+  background-color: $bg;
+  padding: 2rem;
+  min-height: 500px;
+  height: 100svh;
+  border: 1px solid rgba($green, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  font-size: var(--system-16-font-size);
+
+  > img {
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+  }
+}
+
+/* CRT Scanline Effect */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size:
+    100% 4px,
+    3px 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.body {
+  height: 100%;
+  overflow-y: auto;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  color: $green;
+  text-shadow: 0 0 5px rgba($green, 0.7);
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba($green, 0.2);
+  }
+}
+
+.neofetch {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px dashed rgba($green, 0.3);
+  padding-bottom: 1rem;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.asciiArt {
+  margin: 0;
+  line-height: 1.1;
+  font-weight: bold;
+  font-size: var(--system-18-font-size);
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.line {
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.inputArea {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prompt {
+  white-space: nowrap;
+  font-weight: bolder;
+}
+
+.mainInput {
+  background: transparent;
+  border: none;
+  color: $green;
+  font-family: inherit;
+  font-size: var(--system-16-font-size);
+  width: 100%;
+  outline: none;
+  font-weight: bolder;
+  caret-color: $green; // This mimics the blinking cursor
+  color-scheme: dark;
+
+  border-radius: 4px;
+
+  /* Removes the default 'arrow' in some browsers if you want a cleaner look */
+  &::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+}
+
+// =------------------
+$primary-color: #00ff41; // Matrix Green
+$dim-green: rgba(0, 255, 65, 0.6);
+
+.chainsSection {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px dashed rgba($primary-color, 0.3);
+  background: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  right: 1rem;
+  bottom: 4rem;
+
+  .sectionTitle {
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+  }
+}
+
+.chainGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chainItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.9rem;
+
+  .chainLogo {
+    font-weight: bold;
+    color: $primary-color;
+    min-width: 30px;
+  }
+
+  .chainName {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .statusTag {
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    background: $primary-color;
+    color: #000;
+    font-weight: bold;
+    border-radius: 2px;
+  }
+
+  .statusInactive {
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    border: 1px solid $dim-green;
+    color: $dim-green;
+    border-radius: 2px;
+  }
+}

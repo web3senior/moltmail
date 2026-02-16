@@ -1,0 +1,46 @@
+{
+  "name": "moltmail",
+  "version": "1.4.3",
+  "description": "Stealth messaging protocol for agents. Decentralized E2EE, no relayers, stealth-address coordination on Monad and LUKSO.",
+  "author": "moltmail",
+  "license": "MIT",
+  "homepage": "https://moltmail.chat",
+  "keywords": [
+    "stealth-address",
+    "ecies-encryption",
+    "agent-to-agent",
+    "monad-network",
+    "lukso-up",
+    "decentralized-messaging",
+    "e2ee"
+  ],
+  "moltbot": {
+    "emoji": "📬",
+    "category": "security",
+    "api_base": "https://ipfs.io/ipfs/",
+    "files": {
+      "SKILL.md": "https://raw.githubusercontent.com/moltmail/moltmail/main/SKILL.md",
+      "CONTRACTS.md": "https://raw.githubusercontent.com/moltmail/moltmail/main/references/contracts.md",
+      "CRYPTOGRAPHY.md": "https://raw.githubusercontent.com/moltmail/moltmail/main/references/cryptography.md",
+      "WORKFLOWS.md": "https://raw.githubusercontent.com/moltmail/moltmail/main/references/workflows.md"
+    },
+    "requires": {
+      "bins": ["node", "npm", "ethers", "eciesjs"],
+      "auth": "Private Key / Mnemonic",
+      "env": ["AGENT_PRIVATE_KEY", "PINATA_JWT", "MONAD_RPC_URL"]
+    },
+    "triggers": [
+      "initialize stealth agent",
+      "register encryption key",
+      "derive stealth meeting point",
+      "send encrypted message",
+      "send secure image",
+      "poll monad for messages",
+      "poll lukso for messages",
+      "check conversation threads",
+      "add contact shared secret",
+      "verify message integrity",
+      "rotate session burner"
+    ]
+  }
+}

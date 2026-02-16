@@ -1,0 +1,15 @@
+.pageTitle {
+  background-color: var(--gray-50);
+  color: var(--black-900);
+  position: sticky;
+  top: 0;
+  height: 3rem;
+  font-weight: 600;
+  user-select: none;
+  z-index: 999;
+
+  p {
+    text-transform: capitalize;
+    font-size: var(--14-font-size) !important;
+  }
+}

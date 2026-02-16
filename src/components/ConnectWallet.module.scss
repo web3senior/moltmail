@@ -1,0 +1,259 @@
+@use './../styles/components/responsive' as *;
+
+.connect {
+  button {
+    color: var(--white, #fff);
+    background-color: var(--color-primary);
+    font-weight: 500;
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    will-change: transform;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.025);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+button.btnConnect {
+  border: none;
+  background-color: var(--black);
+  color: var(--white, #fff);
+  padding: 0.2rem 0.7rem;
+  border-radius: 1000px;
+  font-size: 12px;
+  cursor: pointer;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.025);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+button.btnNetwork {
+  all: unset;
+  --r: 28px;
+  will-change: transform;
+  transition: all 0.2s ease;
+  border-radius: 1000px;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    transform: scale(1.025);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  svg {
+    width: var(--r);
+    height: var(--r);
+  }
+}
+
+figure.pfp {
+  position: relative;
+  --r: 28px;
+  width: var(--r);
+  height: var(--r);
+
+  &:after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    right: -1px;
+    bottom: 0px;
+
+    border: 1px solid var(--white);
+    border-radius: 999px;
+    background-color: var(--green-65);
+  }
+
+  img {
+    width: inherit;
+    height: inherit;
+    outline: 2px solid var(--gray-200);
+    aspect-ratio: 1/1;
+    will-change: transform outline;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.025);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+}
+
+.walletConnectModal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+  row-gap: 1rem;
+  background-color: var(--gray-50);
+  z-index: 1000;
+
+  .wallet {
+    font-size: 14px;
+    font-weight: 600;
+    column-gap: 0.5rem;
+    width: 100%;
+    max-width: 200px;
+    border-radius: var(--global-border-radius);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    background-color: var(--color-primary);
+    color: var(--white);
+    &:hover {
+      transform: scale(1.025);
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:active {
+      transform: scale(0.95);
+      transition: all 0.3s ease;
+    }
+  }
+}
+
+@include medium-down() {
+  .wallet {
+    padding: 0;
+
+    li {
+      &:first-child {
+        display: none;
+      }
+
+      &:last-child {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// Default Network
+.networkDialog {
+  max-width: 460px;
+  // max-height: 450px;
+
+  .link {
+    color: var(--blue-400);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+  }
+
+  h2 {
+    color: var(--black);
+    @media (max-width: 300px) {
+      font-size: 12px;
+    }
+  }
+
+  p {
+    color: var(--black-500);
+    text-wrap: balance;
+    @media (max-width: 300px) {
+      font-size: 9px;
+      line-height: 1.2;
+    }
+  }
+
+  .networks {
+    margin-top: 1rem;
+
+    button {
+      all: unset;
+      background-color: var(--gray-50);
+      border: 1px solid transparent;
+      padding: 1.1rem 1rem;
+      border-radius: 1rem;
+      outline: none;
+      user-select: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.2rem;
+      cursor: pointer;
+      will-change: transform;
+      transition: transform 0.2s ease;
+      transition:
+        background-color 1s step-end,
+        border 0.3s allow-discrete,
+        transform 0.1s allow-discrete;
+
+      @media (max-width: 300px) {
+        padding: 0.5rem 0.2rem;
+      }
+
+      &:hover {
+        border: 1px solid var(--gray-300);
+        transform: scale(1.04);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      &[data-current='true'] {
+        border: 1px solid var(--black-900);
+
+        &:after {
+          content: '✓ Current';
+          font-size: 9px;
+          background-color: var(--gray-200);
+          padding: 0.05rem 0.3rem;
+          border-radius: 1000px;
+          position: absolute;
+          left: 0.7rem;
+          top: 0.7rem;
+          background-color: var(--black-900);
+          border-bottom: 1px double var(--black-600);
+          color: var(--white);
+          @media (max-width: 300px) {
+            zoom: 0.9;
+          }
+        }
+      }
+
+      svg {
+        --r: 32px;
+        width: var(--r);
+        height: var(--r);
+      }
+
+      span {
+        color: var(--black);
+        font-size: 0.9em;
+        text-align: center;
+        @media (max-width: 300px) {
+          font-size: 0.6rem;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+.page {
+  height: inherit;
+
+  &__container {
+  }
+}
+
+.status {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  color: var(--black-400);
+  background-color: var(--background);
+  border-top: 1px solid var(--light-400);
+  z-index: 1000;
+}

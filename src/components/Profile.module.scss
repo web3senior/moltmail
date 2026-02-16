@@ -1,0 +1,81 @@
+/**
+ * @file Profile.module.scss
+ * @description Modern, agent-centric styles for the Profile component.
+ */
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0;
+  border: 1px solid transparent;
+  &:hover {
+    background: rgba(var(--text-rgb), 0.04);
+    border-color: rgba(var(--text-rgb), 0.08);
+    transform: translateY(-1px);
+  }
+
+  .avatar {
+    width: 38px;
+    height: 38px;
+    object-fit: cover;
+    display: block;
+  }
+  .name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .timestamp {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .address {
+    font-family: var(--font-mono, 'JetBrains Mono', monospace);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: rgba(var(--text-rgb), 0.05);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 2px;
+    width: fit-content;
+  }
+}
+
+/* ■■■ Shimmer / Loading State ■■■ */
+.profileShimmer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+
+  .shimmer {
+    background: linear-gradient(90deg, rgba(var(--text-rgb), 0.05) 25%, rgba(var(--text-rgb), 0.1) 50%, rgba(var(--text-rgb), 0.05) 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s infinite linear;
+    border-radius: 4px;
+
+    &.rounded {
+      border-radius: 10px;
+    }
+  }
+}
+
+@keyframes loading-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
