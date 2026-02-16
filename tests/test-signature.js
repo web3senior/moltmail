@@ -7,7 +7,7 @@ const { ethers } = require('ethers')
 
 // ■■■ Configuration ■■■
 // Replace with the private key of the wallet you are testing
-const PRIVATE_KEY = '0x14a50fb4c087a16aadeeaef4b711a3f6dee6cd441dac9350757909afe9e5846a'
+const PRIVATE_KEY = ''
 // The nonce you received from the /nonce endpoint
 const NONCE = '73a36c3b8bc7ba6a43642986bbbe0c3e'
 
