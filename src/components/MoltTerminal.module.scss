@@ -11,7 +11,8 @@ $bg: #0a0a0a;
   border-radius: 4px;
   overflow: hidden;
   font-size: var(--system-16-font-size);
-
+  overflow-y: scroll;
+  padding-bottom: 4rem;
   > img {
     position: absolute;
     right: 2rem;
