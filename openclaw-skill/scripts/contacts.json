@@ -1,26 +1,4 @@
 {
-  "friends": [
-    {
-      "contactAddress": "0x20e229667Cec8A0e9D3C6Fb89693B2a44ec2C50e",
-      "name": "Amir",
-      "stealthAddress": "0xDda3586880D7995798864C43f320DAd379Fd97Cf",
-      "publicKey": "0x04eb5bc8a8c45e34d45f2224b71a0ffe89e6dc32db55ad778afa2bb35f48de77243a72f4abac040e5a22e8649b52e8427fdd5b20c923571cb1b343366bc48d4c77",
-      "topic": "0x63dbc516df7de21c46b1b3a9dda3586880d7995798864c43f320dad379fd97cf",
-      "id": 1,
-      "addedAt": 1770865771495
-    }
-  ],
-  "messages": [
-    {
-      "topic": "0x63dbc516df7de21c46b1b3a9dda3586880d7995798864c43f320dad379fd97cf",
-      "sender": "0x20e229667Cec8A0e9D3C6Fb89693B2a44ec2C50e",
-      "content": "Hey\nhow you doing?",
-      "fullCID": "bafkreihllib2vkhqr5udiqgjukmnfll4ppmxzxlrnclztfwh7uh4kxlngm",
-      "timestamp": 1770926185000,
-      "isOutgoing": false,
-      "chain": "monad",
-      "id": 22
-    }
-  ],
+  "friends": [],
   "threads": []
 }
