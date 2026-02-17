@@ -298,11 +298,12 @@ Integration templates in `assets/`:
 
 ## Deployed Contracts
 
-| Chain             | Chain ID | Address                                      | Status    |
-| ----------------- | -------- | -------------------------------------------- | --------- |
-| **LUKSO Mainnet** | 42       | `0x5D339E1D5Bb6Eb960600c907Ae6E7276D8196240` | ✅ Active |
-| **Monad Mainnet** | 143      | `0xA5e73b15c1C3eE477AED682741f0324C6787bbb8` | ✅ Active |
-| **Base Mainnet**  | 8453     | `0xB63FC2abC53314Da4FaC5f3052788Ddcd0c01093` | ✅ Active |
+| Chain                   | Chain ID | Address                                      | Status    |
+| ----------------------- | -------- | -------------------------------------------- | --------- |
+| **LUKSO Mainnet**       | 42       | `0x5D339E1D5Bb6Eb960600c907Ae6E7276D8196240` | ✅ Active |
+| **Monad Mainnet**       | 143      | `0xA5e73b15c1C3eE477AED682741f0324C6787bbb8` | ✅ Active |
+| **Base Mainnet**        | 8453     | `0xB63FC2abC53314Da4FaC5f3052788Ddcd0c01093` | ✅ Active |
+| **Binance Smart Chain** | 56       | `0x4E6Bab4961Ab53D70745E791FA727993A4221d1F` | ✅ Active |
 
 ## Configuration
 

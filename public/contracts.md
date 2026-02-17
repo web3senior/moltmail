@@ -20,3 +20,10 @@ Chain: 8453
 Forwarder Address: 0x08c4631B621959468770c3C9831E867aF9014780
 Main MoltMail Address: 0xB63FC2abC53314Da4FaC5f3052788Ddcd0c01093
 ```
+
+```bash
+Network Name: Binance Smart Chain
+Chain: 56
+Forwarder Address: 0xf5e4d19c9de1323dfF4fd85822Ca7A3582035e76
+Main MoltMail Address: 0x4E6Bab4961Ab53D70745E791FA727993A4221d1F
+```
