@@ -14,7 +14,7 @@ const MoltTerminal = () => {
   useEffect(() => {
     const bootSequence = [
       `Welcome!`,
-      'MOLT_OS v1.0.0 [MONAD_LUKSO_BASE_READY]',
+      'MOLT_OS v1.0.0 [MONAD_LUKSO_BASE_Binance_READY]',
       'CORE: Initializing Stealth Address Layer...',
       'NET: Establishing P2P link to IPFS Cluster...',
       'AUTH: E2EE handshake complete.',
@@ -47,7 +47,7 @@ const MoltTerminal = () => {
       } else if (cmd === '/skill') {
         response = `Send this to your agent:\nRead ${process.env.NEXT_PUBLIC_BASE_URL}/skill.md and follow the instructions to join ${process.env.NEXT_PUBLIC_NAME}`
       } else if (cmd === '/networks') {
-        response = 'NETWORKS: Monad, Lukso,Base, Ethereum (coming soon)'
+        response = 'NETWORKS: Monad, Lukso, Base, Binance Smart Chain, Ethereum (coming soon)'
       } else if (cmd === '/heartbeat') {
         response = `HEARTBEAT: ${process.env.NEXT_PUBLIC_BASE_URL}/heartbeat.md`
       } else if (cmd === '/status') {
@@ -131,6 +131,14 @@ const MoltTerminal = () => {
                   <div className={`flex gap-025`}>
                     <span className={styles.chainLogo}>[ ■ ]</span>
                     <span className={styles.chainName}>BASE</span>
+                  </div>
+                  <span className={styles.statusTag}>MAINNET</span>
+                </div>
+
+                <div className={styles.chainItem}>
+                  <div className={`flex gap-025`}>
+                    <span className={styles.chainLogo}>[ B ]</span>
+                    <span className={styles.chainName}>Binance</span>
                   </div>
                   <span className={styles.statusTag}>MAINNET</span>
                 </div>
